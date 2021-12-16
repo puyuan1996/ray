@@ -61,13 +61,17 @@ trainer = PPOTrainer(
         },
         # Parallelize environment rollouts.
         "num_workers": 3,
+
+        # Change this to "framework: torch", if you are using PyTorch.
+        # Also, use "framework: tf2" for tf2.x eager execution.
+        "framework": "torch",
     })
 
 # Train for n iterations and report results (mean episode rewards).
 # Since we have to guess 10 times and the optimal reward is 0.0
 # (exact match between observation and action value),
 # we can expect to reach an optimal episode reward of 0.0.
-for i in range(5):
+for i in range(50):
     results = trainer.train()
     print(f"Iter: {i}; avg. reward={results['episode_reward_mean']}")
 

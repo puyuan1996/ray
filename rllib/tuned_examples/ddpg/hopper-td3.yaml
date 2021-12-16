@@ -1,0 +1,25 @@
+hopper-td3:
+    # Solve latest versions of the four hardest Mujoco tasks benchmarked in the
+    # original TD3 paper. Average return over 10 trials at end of 1,000,000
+    # timesteps (taken from Table 2 of the paper) are given in parens at the end
+    # of reach environment name.
+    #
+    # Paper is at https://arxiv.org/pdf/1802.09477.pdf
+    env:
+        Hopper-v3 
+    run: TD3
+    stop:
+        episode_reward_mean: 3000
+        # timesteps_total: 3000000 # 3M
+        # time_total_s: 72000  # 72000 s=20 hours
+    config:
+        # Works for both torch and tf.
+        framework: torch
+        # === Exploration ===
+        learning_starts: 10000
+        exploration_config:
+            random_timesteps: 10000
+
+        # === Evaluation ===
+        evaluation_interval: 5
+        evaluation_num_episodes: 10

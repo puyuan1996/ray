@@ -61,6 +61,10 @@ trainer = PPOTrainer(
         },
         # Parallelize environment rollouts.
         "num_workers": 3,
+        
+        # Change this to "framework: torch", if you are using PyTorch.
+        # Also, use "framework: tf2" for tf2.x eager execution.
+        "framework": "torch",
     })
 
 # Train for n iterations and report results (mean episode rewards).
