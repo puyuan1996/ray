@@ -1,14 +1,16 @@
 # Pendulum SAC can attain -150+ reward in 6-7k
 # Configurations are the similar to original softlearning/sac codebase
-pendulum-sac:
+Pendulum-v1-sac-gpu-seed0:  # TODO(pu)
     env: Pendulum-v1
     run: SAC
     stop:
-        episode_reward_mean: -600
-        timesteps_total: 10000
+        episode_reward_mean: -250
+        # timesteps_total: 3000000 # 3M
+        # time_total_s: 72000  # 72000 s=20 hours
     config:
+        seed: 0  # TODO(pu)
         # Works for both torch and tf.
-        framework: tf
+        framework: torch
         horizon: 200
         soft_horizon: true
         Q_model:
@@ -32,5 +34,5 @@ pendulum-sac:
           critic_learning_rate: 0.0003
           entropy_learning_rate: 0.0003
         num_workers: 0
-        num_gpus: 0
+        num_gpus: 1  # TODO(pu)
         metrics_smoothing_episodes: 5

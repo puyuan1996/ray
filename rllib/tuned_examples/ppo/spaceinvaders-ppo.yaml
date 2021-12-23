@@ -1,6 +1,6 @@
 # Runs on a single g3.16xl node
 # See https://github.com/ray-project/rl-experiments for results
-SpaceInvadersNoFrameskip-v4-ppo:
+SpaceInvadersNoFrameskip-v4-ppo-gpu-seed0:  # TODO(pu)
     env:
         SpaceInvadersNoFrameskip-v4
     run: PPO
@@ -9,6 +9,7 @@ SpaceInvadersNoFrameskip-v4-ppo:
         # timesteps_total: 10000000 #10M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
+        seed: 0  # TODO(pu)
         # Works for both torch and tf.
         framework: torch
         lambda: 0.95
@@ -27,6 +28,5 @@ SpaceInvadersNoFrameskip-v4-ppo:
         observation_filter: NoFilter
         model:
             vf_share_layers: true
-        # num_gpus: 1  #TODO(pu)
-        num_gpus: 0  #TODO(pu)
+        num_gpus: 1  # TODO(pu)
 

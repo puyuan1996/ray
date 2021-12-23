@@ -1,4 +1,4 @@
-hopper-td3:
+Hopper-v3-td3-gpu-seed0:
     # Solve latest versions of the four hardest Mujoco tasks benchmarked in the
     # original TD3 paper. Average return over 10 trials at end of 1,000,000
     # timesteps (taken from Table 2 of the paper) are given in parens at the end
@@ -23,3 +23,4 @@ hopper-td3:
         # === Evaluation ===
         evaluation_interval: 5
         evaluation_num_episodes: 10
+        num_gpus: 1  # TODO(pu)

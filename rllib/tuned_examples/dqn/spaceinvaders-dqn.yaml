@@ -1,6 +1,6 @@
 # Runs on a single g3.4xl node
 # See https://github.com/ray-project/rl-experiments for results
-SpaceInvadersNoFrameskip-v4-dqn-cpu16:
+SpaceInvadersNoFrameskip-v4-dqn-gpu-seed0:  # TODO(pu)
     env:
         SpaceInvadersNoFrameskip-v4
     run: DQN
@@ -9,6 +9,7 @@ SpaceInvadersNoFrameskip-v4-dqn-cpu16:
         # timesteps_total: 10000000 #10M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
+        seed: 0  # TODO(pu)
         # Works for both torch and tf.
         framework: torch
         double_q: false
@@ -31,6 +32,5 @@ SpaceInvadersNoFrameskip-v4-dqn-cpu16:
         prioritized_replay_alpha: 0.5
         final_prioritized_replay_beta: 1.0
         prioritized_replay_beta_annealing_timesteps: 2000000
-        num_gpus: 0
-        # num_gpus: 1
+        num_gpus: 1  # TODO(pu)
         timesteps_per_iteration: 10000
