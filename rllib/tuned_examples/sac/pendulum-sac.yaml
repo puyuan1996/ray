@@ -33,6 +33,6 @@ Pendulum-v1-sac-gpu-seed0:  # TODO(pu)
           actor_learning_rate: 0.0003
           critic_learning_rate: 0.0003
           entropy_learning_rate: 0.0003
-        num_workers: 0
-        num_gpus: 1  # TODO(pu)
+        num_workers: 0  # TODO(pu):0
+        num_gpus: 1  # TODO(pu):0
         metrics_smoothing_episodes: 5

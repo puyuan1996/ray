@@ -8,6 +8,7 @@ Hopper-v3-td3-gpu-seed0:
     env:
         Hopper-v3 
     run: TD3
+    checkpoint_freq: 10000000  # TODO(pu):1e7
     stop:
         episode_reward_mean: 3000
         # timesteps_total: 3000000 # 3M
