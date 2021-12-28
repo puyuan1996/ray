@@ -1,4 +1,4 @@
-Hopper-v3-sac-gpu-seed0:  # TODO(pu)
+Hopper-v3-sac-gpu-seed1:  # TODO(pu)
     env: Hopper-v3
     run: SAC
     checkpoint_freq: 10000000  # TODO(pu):1e7
@@ -7,7 +7,7 @@ Hopper-v3-sac-gpu-seed0:  # TODO(pu)
         # timesteps_total: 3000000 # 3M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
-        seed: 0  # TODO(pu)
+        seed: 1  # TODO(pu)
         # Works for both torch and tf.
         framework: torch
         horizon: 1000
@@ -32,11 +32,16 @@ Hopper-v3-sac-gpu-seed0:  # TODO(pu)
           actor_learning_rate: 0.0003
           critic_learning_rate: 0.0003
           entropy_learning_rate: 0.0003
-        num_workers: 0
-        num_gpus: 1  # TODO(pu)
-        num_cpus_for_driver: 32
         clip_actions: false
         normalize_actions: true
-        evaluation_interval: 1
+        evaluation_interval: 5
         metrics_smoothing_episodes: 5
+        num_gpus: 0.76 # TODO(pu):1
+        num_cpus_for_driver: 8  # TODO(pu): Number of CPUs to allocate for the trainer. 
+        num_workers: 16  # TODO(pu): Number of rollout worker actors to create for parallel sampling.
+        num_gpus_per_worker: 0.01
+        evaluation_num_workers: 8  # TODO(pu): Number of parallel workers to use for evaluation.
+        timesteps_per_iteration: 10000
+        evaluation_interval: 5
+        evaluation_num_episodes: 10
 
