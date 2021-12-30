@@ -33,12 +33,12 @@ SpaceInvadersNoFrameskip-v4-dqn-gpu-seed2:  # TODO(pu)
         prioritized_replay_alpha: 0.5
         final_prioritized_replay_beta: 1.0
         prioritized_replay_beta_annealing_timesteps: 2000000
-        num_gpus: 0.6 # TODO(pu):1
+        num_gpus: 0.5 # TODO(pu):1
         num_cpus_for_driver: 8  # TODO(pu): Number of CPUs to allocate for the trainer. 
         num_workers: 8  # TODO(pu): Number of rollout worker actors to create for parallel sampling.
-        num_gpus_per_worker: 0.05
+        num_gpus_per_worker: 0.0415
         num_cpus_per_worker: 2
-        evaluation_num_workers: 8  # TODO(pu): Number of parallel workers to use for evaluation.
+        evaluation_num_workers: 4  # TODO(pu): Number of parallel workers to use for evaluation.
         timesteps_per_iteration: 10000
         evaluation_interval: 5
         evaluation_num_episodes: 10
