@@ -1,4 +1,4 @@
-Hopper-v3-td3-gpu-seed0:
+Hopper-v3-td3-gpu-seed__SEED__:
     # Solve latest versions of the four hardest Mujoco tasks benchmarked in the
     # original TD3 paper. Average return over 10 trials at end of 1,000,000
     # timesteps (taken from Table 2 of the paper) are given in parens at the end
@@ -14,7 +14,7 @@ Hopper-v3-td3-gpu-seed0:
         # timesteps_total: 3000000 # 3M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
-        seed: 0  # TODO(pu)
+        seed: __SEED__  # TODO(pu)
         # Works for both torch and tf.
         framework: torch
         # === Exploration ===

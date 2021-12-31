@@ -1,0 +1,44 @@
+# Pendulum SAC can attain -150+ reward in 6-7k
+# Configurations are the similar to original softlearning/sac codebase
+Pendulum-v1-sac-gpu-seed1:  # TODO(pu)
+    env: Pendulum-v1
+    run: SAC
+    stop:
+        episode_reward_mean: -250
+        timesteps_total: 3000000 # 3M
+        # time_total_s: 72000  # 72000 s=20 hours
+    config:
+        seed: 1  # TODO(pu)
+        # Works for both torch and tf.
+        framework: torch
+        horizon: 200
+        soft_horizon: true
+        Q_model:
+          fcnet_activation: relu
+          fcnet_hiddens: [256, 256]
+        policy_model:
+          fcnet_activation: relu
+          fcnet_hiddens: [256, 256]
+        tau: 0.005
+        target_entropy: auto
+        no_done_at_end: true
+        n_step: 3
+        rollout_fragment_length: 1
+        prioritized_replay: true
+        train_batch_size: 256
+        target_network_update_freq: 1
+        timesteps_per_iteration: 1000
+        learning_starts: 256
+        optimization:
+          actor_learning_rate: 0.0003
+          critic_learning_rate: 0.0003
+          entropy_learning_rate: 0.0003
+        num_gpus: 0.5 # TODO(pu):1
+        num_cpus_for_driver: 8  # TODO(pu): Number of CPUs to allocate for the trainer. 
+        num_workers: 8  # TODO(pu): Number of rollout worker actors to create for parallel sampling.
+        num_gpus_per_worker: 0.0415
+        num_cpus_per_worker: 2
+        evaluation_num_workers: 4  # TODO(pu): Number of parallel workers to use for evaluation.
+        timesteps_per_iteration: 10000
+        evaluation_interval: 5
+        evaluation_num_episodes: 10

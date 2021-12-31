@@ -1,6 +1,6 @@
 # Runs on a single g3.4xl node
 # See https://github.com/ray-project/rl-experiments for results
-SpaceInvadersNoFrameskip-v4-dqn-gpu-seed0:  # TODO(pu)
+SpaceInvadersNoFrameskip-v4-dqn-gpu-seed__SEED__:  # TODO(pu)
     env:
         SpaceInvadersNoFrameskip-v4
     run: DQN
@@ -10,7 +10,7 @@ SpaceInvadersNoFrameskip-v4-dqn-gpu-seed0:  # TODO(pu)
         # timesteps_total: 10000000 #10M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
-        seed: 0  # TODO(pu)
+        seed: __SEED__  # TODO(pu)
         # Works for both torch and tf.
         framework: torch
         double_q: false
