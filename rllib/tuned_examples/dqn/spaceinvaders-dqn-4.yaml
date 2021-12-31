@@ -7,7 +7,7 @@ SpaceInvadersNoFrameskip-v4-dqn-gpu-seed4:  # TODO(pu)
     checkpoint_freq: 10000000  # TODO(pu):1e7
     stop:
         episode_reward_mean: 1000
-        # timesteps_total: 10000000 #10M
+        timesteps_total: 10000000  # 10M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
         seed: 4  # TODO(pu)
@@ -19,17 +19,17 @@ SpaceInvadersNoFrameskip-v4-dqn-gpu-seed4:  # TODO(pu)
         noisy: false
         prioritized_replay: false
         n_step: 3  # TODO(pu): ray 1
-        target_network_update_freq: 500  # TODO(pu): ray 8000
-        lr: 0.0001 # TODO(pu): ray .0000625
+        target_network_update_freq: 8000   # TODO(pu): di-engine 500
+        lr: .0000625  # TODO(pu): di-engine 0.0001
         adam_epsilon: .00015
-        hiddens: [128, 128, 512]  # TODO(pu): ray [512]
+        hiddens: [512]  # TODO(pu): ray [128, 128, 512]
         learning_starts: 20000
-        buffer_size: 400000  # TODO(pu): ray 1000000
+        buffer_size:  1000000   # TODO(pu): di-engine 400000
         rollout_fragment_length: 4
         train_batch_size: 32
         exploration_config:
-          epsilon_timesteps: 1000000 # TODO(pu): ray 200000
-          final_epsilon: 0.05   # TODO(pu): ray 0.01
+          epsilon_timesteps: 200000 # TODO(pu): di-engine 1000000
+          final_epsilon: 0.01  # TODO(pu): di-engine 0.05 
         prioritized_replay_alpha: 0.5
         final_prioritized_replay_beta: 1.0
         prioritized_replay_beta_annealing_timesteps: 2000000

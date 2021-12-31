@@ -11,7 +11,7 @@ Hopper-v3-td3-gpu-seed3:
     checkpoint_freq: 10000000  # TODO(pu):1e7
     stop:
         episode_reward_mean: 3000
-        # timesteps_total: 3000000 # 3M
+        timesteps_total: 3000000 # 3M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
         seed: 3  # TODO(pu)

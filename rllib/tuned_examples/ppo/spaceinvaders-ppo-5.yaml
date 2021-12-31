@@ -7,7 +7,7 @@ SpaceInvadersNoFrameskip-v4-ppo-gpu-seed5:  # TODO(pu)
     checkpoint_freq: 10000000  # TODO(pu):1e7
     stop:
         episode_reward_mean: 1000
-        # timesteps_total: 10000000 #10M
+        timesteps_total: 10000000 #10M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
         seed: 5  # TODO(pu)
