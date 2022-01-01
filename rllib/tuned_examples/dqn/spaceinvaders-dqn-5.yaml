@@ -22,7 +22,7 @@ SpaceInvadersNoFrameskip-v4-dqn-gpu-seed5:  # TODO(pu)
         target_network_update_freq: 8000   # TODO(pu): di-engine 500
         lr: .0000625  # TODO(pu): di-engine 0.0001
         adam_epsilon: .00015
-        hiddens: [512]  # TODO(pu): ray [128, 128, 512]
+        hiddens: [512]  # TODO(pu): di-engine [128, 128, 512]
         learning_starts: 20000
         buffer_size:  1000000   # TODO(pu): di-engine 400000
         rollout_fragment_length: 4
