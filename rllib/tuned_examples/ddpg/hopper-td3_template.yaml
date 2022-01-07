@@ -1,20 +1,14 @@
 Hopper-v3-td3-gpu-seed__SEED__:
-    # Solve latest versions of the four hardest Mujoco tasks benchmarked in the
-    # original TD3 paper. Average return over 10 trials at end of 1,000,000
-    # timesteps (taken from Table 2 of the paper) are given in parens at the end
-    # of reach environment name.
-    #
-    # Paper is at https://arxiv.org/pdf/1802.09477.pdf
     env:
         Hopper-v3 
     run: TD3
-    checkpoint_freq: 10000000  # TODO(pu):1e7
+    checkpoint_freq: 10000000  #  1e7
     stop:
         episode_reward_mean: 3000
         # timesteps_total: 3000000 # 3M
         # time_total_s: 72000  # 72000 s=20 hours
     config:
-        seed: __SEED__  # TODO(pu)
+        seed: __SEED__ 
         # Works for both torch and tf.
         framework: torch
         # === Exploration ===
@@ -23,11 +17,11 @@ Hopper-v3-td3-gpu-seed__SEED__:
             random_timesteps: 10000
 
         num_gpus: 0.5 # TODO(pu):1
-        num_cpus_for_driver: 8  # TODO(pu): Number of CPUs to allocate for the trainer. 
-        num_workers: 8  # TODO(pu): Number of rollout worker actors to create for parallel sampling.
+        num_cpus_for_driver: 8  # Number of CPUs to allocate for the trainer. 
+        num_workers: 8  # Number of rollout worker actors to create for parallel sampling.
         num_gpus_per_worker: 0.0415
         num_cpus_per_worker: 2
-        evaluation_num_workers: 4  # TODO(pu): Number of parallel workers to use for evaluation.
+        evaluation_num_workers: 4  # Number of parallel workers to use for evaluation.
         timesteps_per_iteration: 10000
         evaluation_interval: 5
         evaluation_num_episodes: 10
